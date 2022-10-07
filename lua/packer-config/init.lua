@@ -12,6 +12,20 @@ return require("packer").startup(function()
   use('neovim/nvim-lspconfig') -- Configurations for Nvim LSP
   use('nvim-lua/plenary.nvim')
   use{
-      'nvim-telescope/telescope.nvim', tag = '0.1.0'
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      defaults = { 
+          file_ignore_patterns = {
+              "node_modules"
+          } 
+      } 
+  }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+  use {
+   'nvim-lualine/lualine.nvim',
   }
 end)
